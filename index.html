@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple student planner for tasks, study sessions, and academic goals." />
+  <title>Student Planner SaaS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span> StudyFlow</div>
+    <p class="nav-label">WORKSPACE</p>
+    <button class="nav-item active" data-view="overview">▦ <span>Overview</span></button>
+    <button class="nav-item" data-view="tasks">☑ <span>My Tasks</span></button>
+    <button class="nav-item" data-view="schedule">◷ <span>Study Schedule</span></button>
+    <div class="sidebar-bottom"><div class="avatar">S</div><div><strong>Student</strong><small>My workspace</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow">YOUR PERSONAL STUDY SPACE</p><h1 id="greeting">Good morning! 👋</h1><p class="muted">Make today count, one task at a time.</p></div><div class="date-chip" id="today"></div></header>
+    <section class="stats">
+      <article class="stat-card"><span class="stat-icon purple">☑</span><p>Tasks completed</p><strong id="completedCount">0</strong><small>Keep up the momentum</small></article>
+      <article class="stat-card"><span class="stat-icon blue">▤</span><p>Tasks remaining</p><strong id="remainingCount">0</strong><small>One step at a time</small></article>
+      <article class="stat-card"><span class="stat-icon orange">◎</span><p>Study sessions</p><strong id="sessionCount">0</strong><small>Planned for today</small></article>
+    </section>
+    <section class="content-grid">
+      <article class="panel task-panel">
+        <div class="panel-heading"><div><h2>Today's tasks</h2><p class="muted">A little progress adds up.</p></div><span class="pill" id="taskPill">0 tasks</span></div>
+        <form id="taskForm" class="task-form"><input id="taskInput" aria-label="New task" placeholder="Add an assignment or study task..." maxlength="120" required /><select id="priorityInput" aria-label="Task priority"><option value="Normal">Normal</option><option value="High">High priority</option><option value="Low">Low priority</option></select><button class="primary-btn" type="submit">+ Add task</button></form>
+        <div id="taskList" class="task-list"></div>
+        <div id="emptyState" class="empty-state"><span>✧</span><strong>Your study space is clear</strong><p>Add your first task to get started.</p></div>
+      </article>
+      <article class="panel schedule-panel">
+        <div class="panel-heading"><div><h2>Study schedule</h2><p class="muted">Plan focused time.</p></div></div>
+        <form id="sessionForm" class="session-form"><label>Session title<input id="sessionTitle" placeholder="e.g. Mathematics revision" maxlength="80" required /></label><div class="form-row"><label>Date<input id="sessionDate" type="date" required /></label><label>Time<input id="sessionTime" type="time" required /></label></div><button class="secondary-btn" type="submit">+ Plan session</button></form>
+        <div class="section-label">UPCOMING SESSIONS</div><div id="sessionList" class="session-list"></div>
+      </article>
+    </section>
+    <footer>StudyFlow · Student Planner <span>Built for better study habits ✦</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
